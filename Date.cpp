@@ -16,7 +16,7 @@ bool Date::is_leap_year()
 }
 
 bool Date::is_valid()
-{    if(giorno < 0 || giorno > 31)
+{    if(giorno < 0 || giorno > 31 || mese >12)
         return false;
     if(!is_leap_year())
     {    if(mese == 2 && giorno > 28)
