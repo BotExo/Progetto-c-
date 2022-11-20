@@ -1,0 +1,54 @@
+#include "Date.h"
+#include <iostream>
+
+bool Date::is_leap_year()
+{    if(anno % 4 == 0)
+    {    if(anno % 100 == 0)
+        {    if(anno % 400 == 0)
+                return true;
+            else
+                return false;
+        }
+        else
+            return true;
+    }
+    return false;
+}
+
+bool Date::is_valid()
+{    if(giorno < 0 || giorno > 31)
+        return false;
+    if(!is_leap_year())
+    {    if(mese == 2 && giorno > 28)
+            return false;
+    }
+    if((mese == 4 || mese == 6 || mese == 9 || mese == 11) && giorno > 30)
+        return false;
+    return true;
+}
+
+Date::Date()
+{   giorno = 0;
+    mese = 0;
+    anno = 0;
+}
+
+Date::Date(int g, int m, int a)
+{
+    giorno = g;
+    mese = m;
+    anno = a;
+    if(!is_valid()) throw Invalid();
+}
+
+int Date::day()
+{    return giorno;
+}
+
+int Date::month()
+{    return mese;
+}
+
+int Date::year()
+{    return anno;
+}
