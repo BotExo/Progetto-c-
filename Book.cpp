@@ -1,23 +1,19 @@
 #include "Book.h"
+#include "Date.h"
 #include <iostream>
 #include <vector>
 
-Book::Book(std::string Book_author_name, std::string Book_author_lastname, std::string Book_title, std::string ISBN, std::string copyright, bool isBorrowed){
-    Book_author_name = Book_author_name;
-    Book_author_lastname = Book_author_lastname;
-    Book_title = Book_title;
-    ISBN = ISBN;
-    copyright = copyright;
-    isBorrowed = isBorrowed;
+Book::Book(std::string BAN, std::string BAL, std::string BT, std::string IS, std::string CR, bool S){
+    Book_author_name = BAN;
+    Book_author_lastname = BAL;
+    Book_title = BT;
+    ISBN = IS;
+    copyright = CR;
+    Date date_toDate(std::string CR);
+    isBorrowed = S;
 };
 
 Book::Book() {
-    Book_author_name = "";
-    Book_author_lastname = "";
-    Book_title = "";
-    ISBN = "";
-    copyright = "";
-    isBorrowed = "";
 }
 
 void Book::setBook_title(const std::string BT) 
@@ -60,20 +56,15 @@ std::string Book::getISBN() const
     return ISBN; 
 }
 
-void Book::setCopyright(std::string PY) 
+void Book::setCopyright(std::string CR) 
 { 
-    copyright = PY; 
+    copyright = CR; 
 }
 
 std::string Book::getCopyright() const 
 { 
     return copyright; 
 }
-
-/*void Book::printBooks(Book& b)
-{
-		std::cout << b.BookTitle << std::endl;
-}*/
 
 bool Book::operator>=(const Book &b)
 {
@@ -84,13 +75,6 @@ bool Book::operator==(Book b)
 {
     return copyright == b.copyright;
 }
-
-//using Books = Book[nob];
-
-/*void Book::modify(Books b)
-{
-    // DA FARE
-}*/
 
 std::ostream &operator<<(std::ostream &os, const Book b)
 {
@@ -127,42 +111,4 @@ std::ostream &operator<<(std::ostream &os, const Book b)
         }
 
     cout << "Not found\n";
-}*/
-
-/*void Book::copiesStock(Books b)
-{
-    string bt;
-    int newC{};
-
-    cout << "Enter the book title: ";
-    getline(cin >> ws, bt);
-
-    for (size_t i = 0; i < nob; ++i)
-        if (bt == b[i].getBook_Title())
-        {
-            cout << "Number of copies in stock: ";
-            cout << b[i].getNumber_Of_Copies();
-
-            cout << "\nPlease Set the number of copies in stock: ";
-            cin >> newC;
-
-            b[i].setNumber_Of_Copies(newC);
-
-            cout << "\nUpdated the number of copies in stock: " << b[i].getNumber_Of_Copies() << '\n';
-            return;
-        }
-
-    cout << "Not found\n";
-}*/
-
-/*void Book::my_favourite_book(Book& b,std::string Book_author_name, std::string Book_author_lastname, std::string Book_Title, std::string ISBN ){
-    b.Book_author_name = Book_author_name;
-    b.Book_author_lastname = Book_author_lastname;
-    b.Book_Title = Book_Title;
-    b.ISBN = ISBN ;
-    nodi.push_back(b);
-}*/
-
-/*void Book::print_node(Book& b){
-  std::cout << b.Book_author_name << " " << b.Book_author_lastname << " " << b.Book_Title << " " << b.ISBN << std::endl;
 }*/

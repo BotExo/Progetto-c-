@@ -1,6 +1,7 @@
-#include <iostream>
 #ifndef Date_h
 #define Date_h
+#include <iostream>
+
 
 class Date
 {    public:
@@ -10,10 +11,12 @@ class Date
         int day();
         int month();
         int year();
+        bool is_valid();
+        Date date_toDate(std::string CR);
     private:
         int giorno, mese, anno;
-        bool is_valid();
+        
         bool is_leap_year();
 };
 
-#endif /* Date_hpp */
+#endif 

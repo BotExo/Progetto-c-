@@ -1,5 +1,6 @@
 #ifndef BOOK_H
 #define BOOK_H
+#include "Date.h"
 #include <iostream>
 #include <vector>
 #include <string>
@@ -26,9 +27,10 @@ class Book
         bool operator==(Book b);
         /*void modify(Book b);*/
         void printBooks(Book& b);
-        void my_favourite_book(Book& b,std::string Book_author_name, std::string Book_author_lastname, std::string Book_title, std::string ISBN, std::string copyright, bool isBorrowed);
-        /*void print_node(Book& b);*/
+        Date pubblicazione;
+
     private:
+
         std::string Book_title;
         std::string Book_author_lastname; //cognome autore
         std::string Book_author_name; //nome autore
@@ -36,5 +38,4 @@ class Book
         std::string copyright{}; //anno copyright
         bool isBorrowed; //se in noleggio o libero
 };
-
 #endif
