@@ -56,9 +56,9 @@ std::string Book::getISBN() const
     return ISBN; 
 }
 
-void Book::setCopyright(Date CR) 
+void Book::setCopyright(std::string CR) 
 { 
-    copyright = CR; 
+    copyright = Date::date_toDate(CR); 
 }
 
 Date Book::getCopyright() const 
@@ -66,49 +66,39 @@ Date Book::getCopyright() const
     return copyright; 
 }
 
-/*bool Book::operator>=(const Book &b)
-{
-    return copyright >= b.copyright;
-}*/
-
 /*bool Book::operator==(Book b)
 {
     return copyright == b.copyright;
 }*/
 
-std::ostream &operator<<(std::ostream &os, const Book b)
+std::ostream& operator << ( std::ostream& os, const Book& b )
 {
-    if (!b.getBook_title().empty())
-    {
-        os << b.getBook_title() << '\n';
-        os << b.getBook_author_name() << '\n';
-        os << b.getBook_author_lastname() << '\n';
-        os << b.getISBN() << '\n';
-        /*os << b.getCopyright() << '\n';*/
-    }
-
+        os << "Titolo: " << b.getBook_title() << '\n';
+        os << "Autore: " <<b.getBook_author_name() << '\n';
+        os << "Cognome: " << b.getBook_author_lastname() << '\n';
+        os << "ISBN: " << b.getISBN() << '\n';
+        os << "Giorno :" << (b.getCopyright()).day() << '\n';
+        os << "Mese: " << (b.getCopyright()).month() << '\n';
+        os << "Anno: " << (b.getCopyright()).year() << '\n';
     return os;
 }
 
 
-/*void Book::search(const Books b)
+/*void Book::search(std::vector<Book> biblioteca)
 {
-    string bt;
+    std::string bt;
     int is{};
 
-    cout << "Please Enter the ISBN of the book you want to search for: ";
-    cin >> is;
-
-    cout << "Please Enter the Book title you want to search for: ";
-    getline(cin >> ws, bt);
-
-    for (size_t i = 0; i < nob; ++i)
-        if ((bt == b[i].getBook_Title()) && (is == b[i].getISBN()))
+    std::cout << "Please Enter the ISBN of the book you want to search for: ";
+    std::cin >> is;
+    
+    for (Book bk: biblioteca)
+        if ((bt == bk.getBook_title()) && (is))
         {
-            cout << "The book's info you searched for is:\n";
-            cout << b[i] << '\n';
+            std::cout << "The book's info you searched for is:\n";
             return;
         }
 
-    cout << "Not found\n";
-}*/
+    std::cout << "Not found\n";
+}
+*/

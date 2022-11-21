@@ -18,15 +18,11 @@ class Book
         std::string getBook_author_lastname() const; //ritorna cognome autore
         void setISBN(std::string IS); //imposta isbn 
         std::string getISBN() const; //ritorna isbn
-        void setCopyright(Date CR); //imposta anno copyright
+        void setCopyright(std::string CR); //imposta anno copyright
         Date getCopyright() const; //ritorna anno copyright
-        //Book(const string &bt, const string &ban, const string &bal, long ISB, int py);
-        //Book(const Book &BI);
-        //void modify(Book b);
-        bool operator>=(const Book &b);
-        bool operator==(Book b);
-        /*void modify(Book b);*/
-        void printBooks(Book& b);
+        /*bool operator==(Book b);*/
+        /*void search(std::vector<Book> biblioteca);*/
+        friend std::ostream& operator << ( std::ostream& os, const Book& b);
 
     private:
 
