@@ -18,8 +18,8 @@ class Book
         std::string getBook_author_lastname() const; //ritorna cognome autore
         void setISBN(std::string IS); //imposta isbn 
         std::string getISBN() const; //ritorna isbn
-        void setCopyright(std::string PY); //imposta anno copyright
-        std::string getCopyright() const; //ritorna anno copyright
+        void setCopyright(Date CR); //imposta anno copyright
+        Date getCopyright() const; //ritorna anno copyright
         //Book(const string &bt, const string &ban, const string &bal, long ISB, int py);
         //Book(const Book &BI);
         //void modify(Book b);
@@ -27,15 +27,14 @@ class Book
         bool operator==(Book b);
         /*void modify(Book b);*/
         void printBooks(Book& b);
-        Date pubblicazione;
 
     private:
 
         std::string Book_title;
         std::string Book_author_lastname; //cognome autore
         std::string Book_author_name; //nome autore
-        std::string ISBN{}; //isbn DA IMPLEMENTARE CONTROLLO
-        std::string copyright{}; //anno copyright
+        std::string ISBN; //isbn DA IMPLEMENTARE CONTROLLO
+        Date copyright; //anno copyright
         bool isBorrowed; //se in noleggio o libero
 };
 #endif

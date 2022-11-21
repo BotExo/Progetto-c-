@@ -49,11 +49,13 @@ Date Date::date_toDate(std::string CR){
     int entered_anno = stoi(CR.substr(6));
     std::cout << "creata data" << std::endl;
     Date data(entered_giorno,entered_mese,entered_anno);
-    /*if(data.is_valid()){
+    if(data.is_valid()){
         return data;
-    } throw Invalid();*/
+    } 
+        std::cout << "data invalida" << std::endl;
+        throw Invalid();
     return data;
-};
+}
 
 int Date::day()
 {    return giorno;

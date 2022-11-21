@@ -3,13 +3,13 @@
 #include <iostream>
 #include <vector>
 
+
 Book::Book(std::string BAN, std::string BAL, std::string BT, std::string IS, std::string CR, bool S){
     Book_author_name = BAN;
     Book_author_lastname = BAL;
     Book_title = BT;
     ISBN = IS;
-    copyright = CR;
-    Date date_toDate(std::string CR);
+    copyright = Date::date_toDate(CR);
     isBorrowed = S;
 };
 
@@ -56,25 +56,25 @@ std::string Book::getISBN() const
     return ISBN; 
 }
 
-void Book::setCopyright(std::string CR) 
+void Book::setCopyright(Date CR) 
 { 
     copyright = CR; 
 }
 
-std::string Book::getCopyright() const 
+Date Book::getCopyright() const 
 { 
     return copyright; 
 }
 
-bool Book::operator>=(const Book &b)
+/*bool Book::operator>=(const Book &b)
 {
     return copyright >= b.copyright;
-}
+}*/
 
-bool Book::operator==(Book b)
+/*bool Book::operator==(Book b)
 {
     return copyright == b.copyright;
-}
+}*/
 
 std::ostream &operator<<(std::ostream &os, const Book b)
 {
@@ -84,7 +84,7 @@ std::ostream &operator<<(std::ostream &os, const Book b)
         os << b.getBook_author_name() << '\n';
         os << b.getBook_author_lastname() << '\n';
         os << b.getISBN() << '\n';
-        os << b.getCopyright() << '\n';
+        /*os << b.getCopyright() << '\n';*/
     }
 
     return os;

@@ -12,7 +12,7 @@ class Date
         int month();
         int year();
         bool is_valid();
-        Date date_toDate(std::string CR);
+        static Date date_toDate(std::string CR);
     private:
         int giorno, mese, anno;
         
