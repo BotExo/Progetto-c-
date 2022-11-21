@@ -8,6 +8,7 @@
 class Book
 {
     public:
+        class Invalid_ISBN {};
         Book() ; //costruttore
         Book(std::string Book_author_name, std::string Book_author_lastname, std::string Book_title, std::string ISBN, std::string copyright, bool isBorrowed);
         void setBook_title(const std::string BT); //imposta titolo
@@ -23,6 +24,8 @@ class Book
         /*bool operator==(Book b);*/
         /*void search(std::vector<Book> biblioteca);*/
         friend std::ostream& operator << ( std::ostream& os, const Book& b);
+        bool operator!=(const Book &b);
+        bool operator==(Book b);
 
     private:
 

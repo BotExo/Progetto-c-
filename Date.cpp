@@ -47,7 +47,6 @@ Date Date::date_toDate(std::string CR){
     int entered_giorno = stoi(CR.substr(0,2));
     int entered_mese = stoi(CR.substr(3,2));
     int entered_anno = stoi(CR.substr(6));
-    std::cout << "creata data" << std::endl;
     Date data(entered_giorno,entered_mese,entered_anno);
     if(data.is_valid()){
         return data;
