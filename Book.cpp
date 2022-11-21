@@ -1,129 +1,113 @@
 #include "Book.h"
 #include <iostream>
+#include <vector>
 
+Book::Book(std::string Book_author_name, std::string Book_author_lastname, std::string Book_title, std::string ISBN, std::string copyright, bool isBorrowed){
+    Book_author_name = Book_author_name;
+    Book_author_lastname = Book_author_lastname;
+    Book_title = Book_title;
+    ISBN = ISBN;
+    copyright = copyright;
+    isBorrowed = isBorrowed;
+};
 
-const size_t nob{25};
-
-Book::Book() {}
-
-Book::Book(const string &bt, const string &ba, const string &bp, int noc, long ISB, double pr, int py) : Book_Title(bt), Book_author(ba), Book_publisher(bp), Number_Of_Copies(noc), ISBN(ISB), price(pr), Publication_Year(py) {}
-
-Book::Book(const Book &BI)
-{
-    Book_Title(BI.Book_Title);
-    Book_author(BI.Book_author); 
-    Book_publisher(BI.Book_publisher);
-    Number_Of_Copies(BI.Number_Of_Copies); 
-    ISBN(BI.ISBN); 
-    price(BI.price); 
-    Publication_Year(BI.Publication_Year)
+Book::Book() {
+    Book_author_name = "";
+    Book_author_lastname = "";
+    Book_title = "";
+    ISBN = "";
+    copyright = "";
+    isBorrowed = "";
 }
 
-void Book::setBook_Title(const string &BT) 
+void Book::setBook_title(const std::string BT) 
 { 
-    Book_Title = BT; 
-}
-    
-void Book::setBook_author(const string &BA) 
-{ 
-    Book_author = BA; 
+    Book_title = BT; 
 }
 
-void Book::setBook_publisher(const string &BP) 
+std::string Book::getBook_title() const 
 { 
-    Book_publisher = BP; 
+    return Book_title; 
 }
 
-void Book::setNumber_Of_Copies(int NOC) 
+void Book::setBook_author_name(const std::string BAN) 
 { 
-    Number_Of_Copies = NOC; 
+    Book_author_name = BAN; 
 }
 
-void Book::setISBN(int IS) 
+std::string Book::getBook_author_name() const 
+{ 
+    return Book_author_name; 
+}
+
+void Book::setBook_author_lastname(const std::string BAL) 
+{ 
+    Book_author_lastname = BAL; 
+}
+
+std::string Book::getBook_author_lastname() const 
+{ 
+    return Book_author_lastname; 
+}
+
+void Book::setISBN(std::string IS) 
 { 
     ISBN = IS; 
 }
 
-void Book::setprice(double pr) 
-{ 
-    price = pr; 
-}
-
-void Book::setPublication_Year(int PY) 
-{ 
-    Publication_Year = PY; 
-}
-
-string Book::getBook_Title() const 
-{ 
-    return Book_Title; 
-}
-
-string Book::getBook_author() const 
-{ 
-    return Book_author; 
-}
-
-string Book::getBook_publisher() const 
-{ 
-    return Book_publisher; 
-}
-
-int Book::getNumber_Of_Copies() const 
-{
-    return Number_Of_Copies; 
-}
-
-int Book::getISBN() const 
+std::string Book::getISBN() const 
 { 
     return ISBN; 
 }
 
-double Book::getprice() const 
-{
-    return price; 
+void Book::setCopyright(std::string PY) 
+{ 
+    copyright = PY; 
 }
 
-int Book::getPublication_Year() const 
+std::string Book::getCopyright() const 
 { 
-    return Publication_Year; 
+    return copyright; 
 }
+
+/*void Book::printBooks(Book& b)
+{
+		std::cout << b.BookTitle << std::endl;
+}*/
 
 bool Book::operator>=(const Book &b)
 {
-    return Publication_Year >= b.Publication_Year;
+    return copyright >= b.copyright;
 }
 
 bool Book::operator==(Book b)
 {
-    return Publication_Year == b.Publication_Year;
+    return copyright == b.copyright;
 }
 
-using Books = Book[nob];
+//using Books = Book[nob];
 
-void Book::modify(Books b)
+/*void Book::modify(Books b)
 {
     // DA FARE
-}
+}*/
 
-ostream &operator<<(ostream &os, const Book bi)
+std::ostream &operator<<(std::ostream &os, const Book b)
 {
-    if (!bi.getBook_Title().empty())
+    if (!b.getBook_title().empty())
     {
-        os << bi.getBook_Title() << '\n';
-        os << bi.getBook_author() << '\n';
-        os << bi.getBook_publisher() << '\n';
-        os << bi.getNumber_Of_Copies() << '\n';
-        os << bi.getISBN() << '\n';
-        os << bi.getprice() << '\n';
-        os << bi.getPublication_Year() << '\n';
+        os << b.getBook_title() << '\n';
+        os << b.getBook_author_name() << '\n';
+        os << b.getBook_author_lastname() << '\n';
+        os << b.getISBN() << '\n';
+        os << b.getCopyright() << '\n';
     }
 
     return os;
 }
 
 
-void Book::search(const Books b)
+/*void Book::search(const Books b)
 {
     string bt;
     int is{};
@@ -143,9 +127,9 @@ void Book::search(const Books b)
         }
 
     cout << "Not found\n";
-}
+}*/
 
-void Book::copiesStock(Books b)
+/*void Book::copiesStock(Books b)
 {
     string bt;
     int newC{};
@@ -169,4 +153,16 @@ void Book::copiesStock(Books b)
         }
 
     cout << "Not found\n";
-}
+}*/
+
+/*void Book::my_favourite_book(Book& b,std::string Book_author_name, std::string Book_author_lastname, std::string Book_Title, std::string ISBN ){
+    b.Book_author_name = Book_author_name;
+    b.Book_author_lastname = Book_author_lastname;
+    b.Book_Title = Book_Title;
+    b.ISBN = ISBN ;
+    nodi.push_back(b);
+}*/
+
+/*void Book::print_node(Book& b){
+  std::cout << b.Book_author_name << " " << b.Book_author_lastname << " " << b.Book_Title << " " << b.ISBN << std::endl;
+}*/

@@ -1,60 +1,35 @@
 #include <iostream>
 #include <string>
-#include "Book.cpp"
+#include "Book.h"
 using namespace std;
 
 int main()
 {
-    Books b{{"Titolo 1", "Autore 1", "Casa 1", 100, 9781863, 1468, 2009},
-            {"Titolo 2", "Autore 2", "Casa 2", 200, 9780755, 57.4, 1997},
-            {"Titolo 3", "Autore 3", "Casa 3", 300, 780552, 35.5, 2003}};
+    
+    Book book1("David1", "Foster Wallace1", "Una cosa divertente che non farò mai piu1", "1", "ciao1", true);
+    book1.setBook_author_lastname("CambioCognome1");
+    Book book2("David2", "Foster Wallace2", "Una cosa divertente che non farò mai piu2", "2", "ciao2", false);
+    book2.setBook_author_name("CambioNome2");
+    Book book3("David3", "Foster Wallace3", "Una cosa divertente che non farò mai piu3", "3", "ciao3", true);
+    book3.setBook_title("CambioTitolo3");
+    Book book4("David4", "Foster Wallace4", "Una cosa divertente che non farò mai piu4", "4", "ciao4", false);
+    book4.setISBN("CambioISBN4");
+    Book book5("David5", "Foster Wallace5", "Una cosa divertente che non farò mai piu5", "5", "ciao5", true);
+    book5.setCopyright("CambioCopyright5");
 
-    for (bool again{true}; again;)
-    {
-        int ch{};
+    std::vector<Book> shelf(10);
 
-        cout << "\nBook Information\n";
-        cout << "\n1. search the book by Book Title and by ISBN";
-        cout << "\n2. show the number of copies in stock, set the number of copies in stock, update the number of copies in stock";
-        cout << "\n3. Modify";
-        cout << "\n4. print the information of the books";
-        cout << "\n5. compare based on Publication Year";
-        cout << "\n6. Exit";
-        cout << "\n\nEnter Your Choice: ";
-        cin >> ch;
+    shelf.push_back(book1);
+    shelf.push_back(book2);
+    shelf.push_back(book3);
+    shelf.push_back(book4);
+    shelf.push_back(book5);
 
-        switch (ch)
-        {
-        case 1:
-            search(b);
-            break;
-
-        case 2:
-            copiesStock(b);
-            break;
-
-        case 3:
-            modify(b);
-            break;
-
-        case 4:
-            for (int i = 0; i < nob; i++)
-                if (!b[i].getBook_Title().empty())
-                    cout << b[i] << '\n';
-
-            break;
-
-        case 5:
-            cout << "To do\n";
-            break;
-
-        case 6:
-            again = false;
-            break;
-
-        default:
-            cout << "\n wrong choice";
-            break;
-        }
+    for (Book bk : shelf) {
+    cout << bk.getBook_author_name() << ", " << bk.getBook_author_lastname() << ", " << bk.getBook_title() << ", " << bk.getISBN() << ", " << bk.getCopyright() << std::endl;
+    cout << "Libro presente: ";
+    cout << endl;
     }
+    return 0;
+    /*Book my_favourite_book("David", "Foster Wallace", "Una cosa divertenteche non farò mai più", "887-521-837-4");*/
 }

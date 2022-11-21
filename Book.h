@@ -1,39 +1,40 @@
+#ifndef BOOK_H
+#define BOOK_H
 #include <iostream>
-#ifndef Book_h
-#define Book_h
+#include <vector>
 #include <string>
 
 class Book
 {
     public:
-        Book();
-        Book(const string &bt, const string &ba, const string &bp, int noc, long ISB, double pr, int py);
-        Book(const Book &BI);
-        void modify(Book b);
-        void setBook_Title(const std::string &BT);
-        void setBook_author(const std::string &BA);
-        void setBook_publisher(const std::string &BP);
-        void setNumber_Of_Copies(int NOC);
-        void setISBN(int IS);
-        void setprice(double pr);
-        void setPublication_Year(int PY);
-        std::string getBook_Title() const;
-        std::string getBook_author() const;
-        std::string getBook_publisher() const;
-        int getNumber_Of_Copies() const; 
-        int getISBN() const; 
-        double getprice() const; 
-        int getPublication_Year() const;
+        Book() ; //costruttore
+        Book(std::string Book_author_name, std::string Book_author_lastname, std::string Book_title, std::string ISBN, std::string copyright, bool isBorrowed);
+        void setBook_title(const std::string BT); //imposta titolo
+        std::string getBook_title() const; //ritorna titolo
+        void setBook_author_name(const std::string BAN); //mposta autore nome
+        std::string getBook_author_name() const; //ritorna nome autore
+        void setBook_author_lastname(const std::string BAL); //imposta cognome autore
+        std::string getBook_author_lastname() const; //ritorna cognome autore
+        void setISBN(std::string IS); //imposta isbn 
+        std::string getISBN() const; //ritorna isbn
+        void setCopyright(std::string PY); //imposta anno copyright
+        std::string getCopyright() const; //ritorna anno copyright
+        //Book(const string &bt, const string &ban, const string &bal, long ISB, int py);
+        //Book(const Book &BI);
+        //void modify(Book b);
         bool operator>=(const Book &b);
         bool operator==(Book b);
+        /*void modify(Book b);*/
+        void printBooks(Book& b);
+        void my_favourite_book(Book& b,std::string Book_author_name, std::string Book_author_lastname, std::string Book_title, std::string ISBN, std::string copyright, bool isBorrowed);
+        /*void print_node(Book& b);*/
     private:
-        std::string Book_Title;
-        std::string Book_author;
-        std::string Book_publisher;
-        int Number_Of_Copies{};
-        long ISBN{};
-        double price{};
-        int Publication_Year{};
+        std::string Book_title;
+        std::string Book_author_lastname; //cognome autore
+        std::string Book_author_name; //nome autore
+        std::string ISBN{}; //isbn DA IMPLEMENTARE CONTROLLO
+        std::string copyright{}; //anno copyright
+        bool isBorrowed; //se in noleggio o libero
 };
 
 #endif

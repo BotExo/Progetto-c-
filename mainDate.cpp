@@ -1,6 +1,6 @@
 
 #include <iostream>
-#include "Date.cpp"
+#include "Date.h"
 using namespace std;
 
 int main()
@@ -8,7 +8,7 @@ int main()
     int d = 0;
     int m = 0;
     int y = 0;
-    cout << "inserire data" << endl;
+    cout << "inserisci data" << endl;
     cin >> d;
     cin >> m;
     cin >> y;
