@@ -90,7 +90,7 @@ std::ostream& operator << ( std::ostream& os, const Book& b )
         os << "Autore: " <<b.getBook_author_name() << '\n';
         os << "Cognome: " << b.getBook_author_lastname() << '\n';
         os << "ISBN: " << b.getISBN() << '\n';
-        os << "Giorno :" << (b.getCopyright()).day() << '\n';
+        os << "Giorno:" << (b.getCopyright()).day() << '\n';
         os << "Mese: " << (b.getCopyright()).month() << '\n';
         os << "Anno: " << (b.getCopyright()).year() << '\n';
     return os;
