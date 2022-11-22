@@ -8,9 +8,17 @@ Book::Book(std::string BAN, std::string BAL, std::string BT, std::string IS, std
     Book_author_name = BAN;
     Book_author_lastname = BAL;
     Book_title = BT;
-    ISBN = IS;
+    /*ISBN = */setISBN(IS);
     copyright = Date::date_toDate(CR);
     isBorrowed = S;
+};
+
+Book::Book(std::string BAN, std::string BAL, std::string BT, std::string IS){
+    /*Book_author_name =*/ setBook_author_name(BAN);
+    /*Book_author_lastname =*/ setBook_author_lastname(BAL);
+    /*Book_title =*/ setBook_title(BT);
+    /*ISBN = */setISBN(IS);
+    /*copyright = Date::date_toDate(CR);*/
 };
 
 Book::Book() {
@@ -45,11 +53,6 @@ std::string Book::getBook_author_lastname() const
 { 
     return Book_author_lastname; 
 }
-
-/*void Book::setISBN(std::string IS) 
-{ 
-    ISBN = IS; 
-}*/
 
 void Book::setISBN(std::string IS) 
 { 
@@ -117,21 +120,14 @@ bool Book::operator==(Book b)
     return equal;
 }
 
-/*void Book::search(std::vector<Book> biblioteca)
-{
-    std::string bt;
-    int is{};
-
-    std::cout << "Please Enter the ISBN of the book you want to search for: ";
-    std::cin >> is;
-    
-    for (Book bk: biblioteca)
-        if ((bt == bk.getBook_title()) && (is))
-        {
-            std::cout << "The book's info you searched for is:\n";
-            return;
-        }
-
-    std::cout << "Not found\n";
+void Book::setBook_status(bool S)
+{   
+    if(S != true || S == false)
+        throw Invalid_Status();
+    isBorrowed = S;
 }
-*/
+
+bool Book::getBook_status()
+{
+    return isBorrowed;
+}

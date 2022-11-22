@@ -9,8 +9,10 @@ class Book
 {
     public:
         class Invalid_ISBN {};
+        class Invalid_Status{};
         Book() ; //costruttore
         Book(std::string Book_author_name, std::string Book_author_lastname, std::string Book_title, std::string ISBN, std::string copyright, bool isBorrowed);
+        Book(std::string BAN, std::string BAL, std::string BT, std::string IS);
         void setBook_title(const std::string BT); //imposta titolo
         std::string getBook_title() const; //ritorna titolo
         void setBook_author_name(const std::string BAN); //mposta autore nome
@@ -21,12 +23,12 @@ class Book
         std::string getISBN() const; //ritorna isbn
         void setCopyright(std::string CR); //imposta anno copyright
         Date getCopyright() const; //ritorna anno copyright
-        /*bool operator==(Book b);*/
-        /*void search(std::vector<Book> biblioteca);*/
+        void search(std::string ISBN);
         friend std::ostream& operator << ( std::ostream& os, const Book& b);
         bool operator!=(const Book &b);
         bool operator==(Book b);
-
+        void setBook_status(bool S);
+        bool getBook_status();
     private:
 
         std::string Book_title;

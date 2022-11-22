@@ -17,7 +17,7 @@ int main()
     Book book4("David4", "Foster Wallace4", "Una cosa divertente che non faro' mai piu4", "887-521-837-4", "16/12/1998", false);
     book4.setISBN("100-000-000-4");
     Book book5("David5", "Foster Wallace5", "Una cosa divertente che non faro' mai piu5", "887-521-837-4", "16-12-1998", true);
-    Book my_favourite_book("David", "Foster Wallace", "Una cosa divertenteche non faro' mai piu'", "887-521-837-4", "01/01/1997", false);
+    Book my_favourite_book("David", "Foster Wallace", "Una cosa divertenteche non faro' mai piu'", "887-521-837-4");
     shelf.push_back(book1);
     shelf.push_back(book2);
     shelf.push_back(book3);
@@ -32,21 +32,22 @@ int main()
     }*/
     
     std::cout << "prova stampa con overload operatore<<: \n" ;
-    std::cout << book1;
-    std::cout << book4;
+    std::cout << my_favourite_book;
+    std::cout << book3;
+
     
     std::cout << "prova confronto con operatore ==: \n" ;
     if(book1 == book4){
-        std::cout << "stesso libro \n";
+        std::cout << "vero, sono uguali \n";
     } else {
-        std::cout << "libro diverso \n";
+        std::cout << "falso, sono diversi \n";
     }
     
     std::cout << "prova confronto con operatore !=: \n" ;
     if(book1 != book4){
-        std::cout << "libro diverso \n";
+        std::cout << "vero, sono diversi \n";
     } else {
-        std::cout << "stesso libro \n";
+        std::cout << "falso, sono uguali \n";
     }
 
 
